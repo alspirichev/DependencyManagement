@@ -1,25 +1,25 @@
 # Dependency Management for iOS
 
-- [CocoaPods](#CocoaPods)
-  - [Installing CocoaPods](#installing-cocoaPods)
-  - [Adding frameworks](#Adding frameworks)
-  - [Useful command](#Useful command)
-  - [Useful keys](#Useful keys)
-  - [pod install vs. pod update](#pod install vs. pod update)
-  - [Library vs. framework](#Library vs. framework)
-- [Carthage](#Carthage)
-  - [Installing](#Installing)
-  - [Adding frameworks](#Adding frameworks)
-  - [Running a project that uses Carthage](#Running a project that uses Carthage)
-  - [Cartfile Format](#Cartfile Format)
-  - [Carthage directories](#Carthage directories)
-- [Carthage vs. CocoaPods](# Carthage vs. CocoaPods)
-- [Semantic Versioning](# Semantic Versioning)
-- [Sources](# Sources)
+- [CocoaPods](#cocoapods)
+  - [Installing CocoaPods](#installing-cocoapods)
+  - [Adding frameworks](#adding-frameworks)
+  - [Useful command](#useful-command)
+  - [Useful keys](#useful-keys)
+  - [pod install vs. pod update](#pod-install-vs-pod-update)
+  - [Library vs. framework](#library-vs-framework)
+- [Carthage](#carthage)
+  - [Installing](#installing)
+  - [Adding frameworks](#adding-frameworks)
+  - [Running a project that uses Carthage](#running-a-project-that-uses-carthage)
+  - [Cartfile Format](#cartfile-format)
+  - [Carthage directories](#carthage-directories)
+- [Carthage vs. CocoaPods](#carthage-vs-cocoapods)
+- [Semantic Versioning](#semantic-versioning)
+- [Sources](#sources)
 
-## CocoaPods
+## CocoaPods 
 
-### Installing CocoaPods:
+### Installing CocoaPods: 
 
 1. run '**sudo gem install cocoapods**' in console
 2. **pod setup --verbose**
@@ -38,7 +38,7 @@
 
 6. Use **.xcworkspace** for this project from now on
 
-### Useful command
+### Useful command: 
 
 * **pod outdated** - Show outdated project dependencies
 * **pod update** - It will update the pod to the latest version possible (as long as it matches the version restrictions in your **Podfile**)
@@ -46,13 +46,13 @@
 * **pod list** - List pods
 * **pod try NAME|URL** - Downloads the Pod with the given **NAME** (or Git *URL*), install its dependencies if needed and opens its demo project. If a Git URL is provided the head of the repo is used.
 
-### Useful keys
+### Useful keys: 
 
 *  **--silent** - Show nothing
 * **--version** - Show the version of the tool
 * **--verbose** - Show more debugging information
 
-### pod install vs. pod update
+### pod install vs. pod update: 
 
 * Use ***pod install*** to install new pods in your project. Even if you already have a **Podfile** and ran ***pod install*** before; so even if you are just adding/removing pods to a project already using CocoaPods.
 
@@ -60,7 +60,7 @@
 
 #### **You should always commit & push your *Podfile.lock* file.**
 
-### Library vs. framework
+### Library vs. framework: 
 
 * **Dynamic frameworks**, allow code, images and other assets to be bundled together. **Static libraries** *aren’t* allowed to contain any resources such as images or asset.
 * **Dynamic frameworks** have namespace classes and **static libraries** don’t.
@@ -103,7 +103,7 @@ $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveSwift.framework
 $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveCocoa.framework
 ```
 
-### Running a project that uses Carthage
+### Running a project that uses Carthage: 
 
 After you’ve finished the above steps and pushed your changes, other users of the project only need to fetch the repository and run **carthage bootstrap** to get started with the frameworks you’ve added.
 
@@ -122,19 +122,19 @@ After you’ve finished the above steps and pushed your changes, other users of 
   - **>= 1.0** means “Use version 1.0 or higher”
   - **~> 1.0** means “Use any version that’s compatible with 1.0″, essentially meaning any version up until the next major release.
   
-- **branch name / tag name / commit name**
+- **branch name / tag name / commit name**: 
 
   This means “Use this specific git branch / tag / commit”. For example, you could specify master, or a commit has like **5c8a74a**. 
 
 If you don’t specify a version, then Carthage will just use the latest version that’s compatible with your other dependencies.
 
-### Carthage directories
+### Carthage directories: 
 
 When you run **carthage update**, Carthage creates a couple of files and directories for you:
 
 ![Carthage directory](https://github.com/alspirichev/CocoaPods-Carthage/blob/master/carthage.png)
 
-- **Cartfile.resolved**
+- **Cartfile.resolved**: 
 
   This file is created to serve as a companion to the Cartfile. It defines exactly which versions of your dependencies Carthage selected for installation. It’s **strongly recommended to commit** this file to your version control repository
   
@@ -142,7 +142,7 @@ When you run **carthage update**, Carthage creates a couple of files and directo
   - **Build**: This contains the built framework for each dependency.
   - **Checkouts**: This is where Carthage checks out the source code for each dependency that’s ready to build into frameworks. 
 
-# Carthage vs. CocoaPods
+# Carthage vs. CocoaPods 
 
 * CocoaPods (by default) automatically creates and updates an Xcode workspace for your application and all dependencies. Carthage builds framework binaries using **xcodebuild**, but leaves the responsibility of integrating them up to the user.
 
@@ -150,7 +150,7 @@ When you run **carthage update**, Carthage creates a couple of files and directo
 
 * CocoaPods projects must also have what’s known as a podspec file, which includes metadata about the project and specifies how it should be built. Carthage uses **xcodebuild** to build dependencies, instead of integrating them into a single workspace, it doesn’t have a similar specification file but your dependencies must include their own Xcode project that describes how to build their products.
 
-# Semantic Versioning
+# Semantic Versioning 
 
 The three numbers are defined as major, minor, and patch version numbers.
 
@@ -164,7 +164,7 @@ Given a version number **MAJOR**.**MINOR**.**PATCH**, increment the:
 
 (If a pod’s version number is less than *1.0.0*, it’s considered to be a **beta version**, and minor number increases may include **backwards incompatible** changes.)
 
-# Sources
+# Sources 
 
 * [Cocoapods](https://cocoapods.org/)
 * [Carthage](https://github.com/Carthage/Carthage)
