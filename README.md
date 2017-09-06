@@ -1,7 +1,7 @@
 # Dependency Management for iOS
 
 - [CocoaPods](#CocoaPods)
-  - [Installing CocoaPods](#Installing CocoaPods)
+  - [Installing CocoaPods](#installing-cocoaPods)
   - [Adding frameworks](#Adding frameworks)
   - [Useful command](#Useful command)
   - [Useful keys](#Useful keys)
